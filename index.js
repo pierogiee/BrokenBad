@@ -1,12 +1,12 @@
 
 const questions = {
     "What is the name of Walter White's wife?": "Skyler White",
-    "What is the street name for the high-quality blue methamphetamine produced by Walter White?": "Blue Sky",
+    "What is the 'street name' for the high-quality blue methamphetamine produced by Walter White?": "Blue Sky",
     "What is the name of the lawyer who represents Walter White and Jesse Pinkman?": "Saul Goodman",
     "What is the name of the drug kingpin who goes by the alias 'Heisenberg'?": "Walter White",
     "What is the name of the nursing home where Hector Salamanca resides?": "Casa Tranquila",
     "What is the name of the bank where Walter White and his partners attempt to steal methylamine in Season 5?": "Mesa Verde",
-    "What is the name of Jesse Pinkman's girlfriend(first name) who tragically dies of an overdose?": "Jane",
+    "What is the name of Jesse Pinkman's girlfriend (first name) who tragically dies of an overdose?": "Jane",
     "What is the name of the industrial chemical used by Walter White to make methamphetamine?": "Methylamine"
 };
 
