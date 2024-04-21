@@ -1,48 +1,62 @@
+
 const questions = {
-    "What is the name of Walter White's alias in the meth business?": "Heisenberg",
-    "Who is Walter White's DEA agent brother-in-law?": "Hank Schrader",
-    "What is the name of the fast-food chicken restaurant that served as a front for Gus Fring's drug operation?": "Los Pollos Hermanos"
+    "What is the name of Walter White's wife?": "Skyler White",
+    "What is the street name for the high-quality blue methamphetamine produced by Walter White?": "Blue Sky",
+    "What is the name of the lawyer who represents Walter White and Jesse Pinkman?": "Saul Goodman",
+    "What is the name of the drug kingpin who goes by the alias 'Heisenberg'?": "Walter White",
+    "What is the name of the nursing home where Hector Salamanca resides?": "Casa Tranquila",
+    "What is the name of the bank where Walter White and his partners attempt to steal methylamine in Season 5?": "Mesa Verde",
+    "What is the name of Jesse Pinkman's girlfriend(first name) who tragically dies of an overdose?": "Jane",
+    "What is the name of the industrial chemical used by Walter White to make methamphetamine?": "Methylamine"
 };
 
+
 const questionElement = document.getElementById("question");
+const answerInput = document.getElementById("answer");
 const keys = Object.keys(questions);
 const livesElement = document.getElementById("lives");
 const form = document.getElementById("quiz");
-let lives = 5;
-
+const video = document.querySelector("video");
 const boom = new Audio("boom.mp3");
+let lives = 5;
 
 window.onload = function() {
     randomiseQuestion();
 }
 
-function randomiseQuestion(status) {
+function randomiseQuestion() {
     const randomQuestion = keys[Math.floor(Math.random() * keys.length)];
     questionElement.textContent = randomQuestion;
-    document.getElementById("answer").value = "";
-
-    if(status == "incorrect") {
-        document.body.style.backgroundImage = "url('walt.webp')";
-        boom.currentTime = 0;
-        boom.play();
-        lives -= 1;
-        livesElement.innerHTML = "Lives left: " + lives;
-    }
-
-    if(lives == 0) {
-        alert("Run.")
-    }
+    answerInput.value = "";
 }
 
 function checkAnswer() {
     const question = questionElement.textContent;
-    const answerInput = document.getElementById("answer").value;
     const answer = questions[question];
+    const answerInputValue = answerInput.value;
 
-    if(answerInput == answer) {
-        randomiseQuestion("correct");
+    if (answerInputValue === answer) {
+        randomiseQuestion();
     } else {
-        randomiseQuestion("incorrect");
+        boom.currentTime = 0;
+        boom.play();
+        lives -= 1;
+        livesElement.innerHTML = "Lives left: " + lives;
+
+        if (lives === 0) {
+            video.play();
+            video.addEventListener("ended", () => {
+                video.style.display = "none";
+                form.style.display = "none";
+                alert("Run.");
+            });
+        } else {
+            video.play();
+            setTimeout(() => {
+                video.pause();
+                randomiseQuestion();
+            }, 6000);
+        }
     }
 }
 
