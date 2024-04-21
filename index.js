@@ -22,6 +22,7 @@ function randomiseQuestion(status) {
     document.getElementById("answer").value = "";
 
     if(status == "incorrect") {
+        document.body.style.backgroundImage = "url('walt.webp')";
         boom.currentTime = 0;
         boom.play();
         lives -= 1;
@@ -44,3 +45,4 @@ function checkAnswer() {
         randomiseQuestion("incorrect");
     }
 }
+
