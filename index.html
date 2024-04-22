@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="static/css/index.css">
     <title>BrokenBad</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="body">
         <div class="row mb-3">
             <div class="col">
                 <h1 id="question"></h1>
@@ -20,7 +20,7 @@
                 <input type="text" id="answer" name="answer" class="form-control" placeholder="Enter your answer here...">
             </div>
             <div class="col">
-                <button type="submit" class="btn btn-primary" onclick="checkAnswer()">Submit</button>
+                <button type="submit" class="btn btn-primary" id="submit" onclick="checkAnswer()">Submit</button>
             </div>
         </div>
 
@@ -33,12 +33,12 @@
         <div class="row">
             <div class="col">
                 <div id="video-container">
-                    <video src="hank.mp4" preload="auto"></video>
+                    <video src="static/other stuff/hank.mp4" preload="auto"></video>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="index.js"></script>
+    <script src="static/js/index.js"></script>
 </body>
 </html>
